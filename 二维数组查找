@@ -1,0 +1,93 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class JavaWork2ZB{
+	public static void main(String args[])
+	{
+		new FrameInOut();
+	}
+	}
+	/*创建界面图形的类*/
+	class FrameInOut extends Frame implements ActionListener
+	{
+		JButton     find,display;//定义查找按钮
+		JTextArea   ta,ta1;           //定义2个文本域
+		JPanel      p1,p2;            //将面板作为容器
+		TextField   tx1;              //定义文本框
+		int num;
+		int scores[][]={{78,80,95},{86,77,61},{13,64,58}};
+		FrameInOut()
+		{
+			  super("二维数组元素查找");//设置标题
+		      /*初始化按钮*/
+		       find=new JButton("查找");
+               display=new JButton("显示数组");
+		      /*初始化文本域，数字表示文本区域行数，后位表示列数*/
+		       ta =new JTextArea(10,10);
+		       tx1=new TextField(6);
+		       ta1 =new JTextArea(5,10);
+		       /*初始化面板，将个控件加入容器*/
+		       p1 =new JPanel();
+		       p2 =new JPanel();
+		       p1.add(ta);
+		       p1.add(display);
+		       p2.add(tx1);
+		       p2.add(find);
+		       p2.add(ta1);
+		       add(p1);
+		       add(p2);
+		       setLayout(new FlowLayout());//设置采用流式布局
+		       /*设置面板背景色*/
+		       p1.setBackground(Color.red);
+		       /*各个按钮注册事件监听器*/
+		       find.addActionListener(this);
+		       display.addActionListener(this);
+		       addWindowListener(new WindowAdapter(){
+				   public void windowClosing(WindowEvent e)
+				   {
+					   System.exit(0);
+					  }
+		         });
+		       setSize(600,500);//设置尺寸
+		       setVisible(true);//设置可见
+		}
+		/*实现按钮功能*/
+		public void actionPerformed(ActionEvent e)
+		{
+           if(e.getSource()==display)
+           {
+         		for(int i=0;i<3;i++)
+				{
+					for(int j=0;j<3;j++)
+					{
+						ta.append(scores[i][j]+"\t");
+					}
+					ta.append("\n");
+				}
+		  }
+			if(e.getSource()==find)//显示学生信息
+			{
+                int a=0,b=0;
+				ta.setForeground(Color.blue);
+				num=Integer.parseInt(tx1.getText());
+				for(a=0;a<3;a++)
+			    {
+					for(b=0;b<3;b++)
+					{
+						if(num==scores[a][b])
+						{ta1.append("此数字在"+(a+1)+"行"+(b+1)+"列"+"\n");
+						a=3;
+						b=3;
+						}
+				    }
+			    }
+			    if(a==3&&b==3)
+			    {
+					ta1.append("此数字不存在");
+				}
+
+			}
+
+		}
+
+	}
