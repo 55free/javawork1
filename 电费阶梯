@@ -1,0 +1,24 @@
+import java.util.Scanner;
+/*为鼓励居民节约用电，电力公司采取按用电量阶梯式计价的办法，居民应交电费y（元）与月用电量x（度）相关：
+当x不超过100度时，按0.3元/度计费； 当x不超过200度时，按0.4元/度计费；当x不超过300度时，按0.5元/度计费；当x超过300度时，
+按0.8元/度计费。请编写程序实现电费的计算*/
+public class Java
+{
+
+    public static void main(String[] args)
+    {
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		double charge=0;
+		if(num<=100)
+		charge=num*0.3;
+		else if(num<=200)
+		charge=num*0.4;
+		else if(num<=300)
+		charge=num*0.5;
+		else
+		{charge=num*0.8;}
+		System.out.print(charge);
+	}
+
+}
