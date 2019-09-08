@@ -1,0 +1,18 @@
+import java.util.Scanner;
+/*    °C = (°F -32)*5/9
+其中C表示摄氏温度，F表示华氏温度。
+程序的输入是一个整数，表示华氏温度。输出对应的摄氏温度，也是一个整数。
+*/
+public class Java
+{
+
+    public static void main(String[] args)
+    {
+		Scanner sc=new Scanner(System.in);
+		int f=sc.nextInt();
+		int c=(f-32)*5/9;
+
+		System.out.print(c);
+	}
+
+}
