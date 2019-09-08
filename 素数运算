@@ -1,0 +1,28 @@
+public class Java
+{
+
+    public static void main(String[] args)
+    {
+		int num[]=new int[1000];
+		Scanner sc = new Scanner(System.in);
+		int i,j,num1,num2,sum=0;
+		 num1 = sc.nextInt();
+		num2 = sc.nextInt();
+		for(i=100;i<1000;i++)
+		{
+			for(j=2;j<i;j++)
+			if(i%j==0)
+			break;
+			if(j==i)
+			num[i]=1;
+		}
+		for(sum=0,i=num1;i<=num2;i++)
+		{
+			if(num[i]==1)
+			sum+=i;
+		}
+		System.out.println(sum);
+	}
+
+
+}
